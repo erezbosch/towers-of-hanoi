@@ -32,16 +32,20 @@
     }
     this.render();
     if (this.game.isWon()) {
-      alert("Congratulations!");
+      this.$el.addClass("win");
     }
   };
 
   View.prototype.setupTowers = function () {
+    this.$el.append("<h1>Towers of Hanoi!</h1>");
     var $tower = $("<ul class='tower'></ul>").attr("data-pos", 0);
     this.$el.append($tower);
-    $tower.append($("<li class='space occupied light'></li>").attr("data-height", 2));
-    $tower.append($("<li class='space occupied medium'></li>").attr("data-height", 1));
-    $tower.append($("<li class='space occupied heavy'></li>").attr("data-height", 0));
+    $tower.append($("<li class='space occupied light'></li>")
+          .attr("data-height", 2));
+    $tower.append($("<li class='space occupied medium'></li>")
+          .attr("data-height", 1));
+    $tower.append($("<li class='space occupied heavy'></li>")
+          .attr("data-height", 0));
     for (var i = 1; i < 3; i++) {
       var $tower = $("<ul class='tower'></ul>").attr("data-pos", i);
       this.$el.append($tower);

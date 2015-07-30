@@ -1,10 +1,19 @@
-html, body, figure, figcaption, div, p {
+html, body, figure, figcaption, div, p, h1 {
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
+    font: helvetica;
     text-align: center;
     font-size: 60px;
+}
+
+h1 {
+  margin: 50px;
+}
+
+.hanoi {
+  margin: 50px auto;
+  width: 900px;
 }
 
 li {
@@ -19,14 +28,11 @@ li {
 
 .tower {
   float: left;
-  width: 200px;
-  margin: 50px;
-
-  border-bottom: 10px solid #00a;
-}
-
-ul {
-  list-style-type: none;
+  width: 240px;
+  margin: 20px;
+  border-bottom: 10px solid #009;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 .space {
@@ -34,24 +40,41 @@ ul {
   border-radius: 25px;
 }
 
-.space.occupied.heavy {
+.heavy {
   width: 100%;
   margin-left: -22px;
   background-color: #000;
 }
 
-.space.occupied.medium {
+.medium {
   width: 66%;
-  margin-left: 10px;
+  margin-left: 13px;
   background-color: #888;
 }
 
-.space.occupied.light {
+.light {
   width: 33%;
-  margin-left: 40px;
+  margin-left: 47px;
   background-color: #aaa;
 }
 
 .tower.clicked {
-  border-bottom-color: #090
+  border-bottom-color: #0f0
+}
+
+.win:after {
+  content: "You win!";
+  margin-right: 50px;
+}
+
+.win .heavy {
+  background: #229;
+}
+
+.win .medium {
+  background: #44b;
+}
+
+.win .light {
+  background: #66f;
 }
