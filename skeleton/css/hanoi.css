@@ -1,0 +1,57 @@
+html, body, figure, figcaption, div, p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-align: center;
+    font-size: 60px;
+}
+
+li {
+  display: list-item;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.tower {
+  float: left;
+  width: 200px;
+  margin: 50px;
+
+  border-bottom: 10px solid #00a;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.space {
+  height: 50px;
+  border-radius: 25px;
+}
+
+.space.occupied.heavy {
+  width: 100%;
+  margin-left: -22px;
+  background-color: #000;
+}
+
+.space.occupied.medium {
+  width: 66%;
+  margin-left: 10px;
+  background-color: #888;
+}
+
+.space.occupied.light {
+  width: 33%;
+  margin-left: 40px;
+  background-color: #aaa;
+}
+
+.tower.clicked {
+  border-bottom-color: #090
+}
