@@ -37,7 +37,7 @@
   };
 
   View.prototype.setupTowers = function () {
-    this.$el.append("<h1>Towers of Hanoi!</h1>");
+    this.$el.append("<h1>Towers of Babylon</h1>");
     var $tower = $("<ul class='tower'></ul>").attr("data-pos", 0);
     this.$el.append($tower);
     for (var j = 6; j >= 0; j--) {
