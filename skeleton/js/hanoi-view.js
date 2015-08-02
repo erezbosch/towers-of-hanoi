@@ -40,40 +40,43 @@
     this.$el.append("<h1>Towers of Hanoi!</h1>");
     var $tower = $("<ul class='tower'></ul>").attr("data-pos", 0);
     this.$el.append($tower);
-    $tower.append($("<li class='space occupied light'></li>")
-          .attr("data-height", 2));
-    $tower.append($("<li class='space occupied medium'></li>")
-          .attr("data-height", 1));
-    $tower.append($("<li class='space occupied heavy'></li>")
-          .attr("data-height", 0));
+    for (var j = 6; j >= 0; j--) {
+      var $space = $("<li class='space'></li>").attr("data-height", j);
+      $space = this.occupySpace($space, this.game.towers[0][j]);
+      $tower.append($space);
+    }
     for (var i = 1; i < 3; i++) {
       var $tower = $("<ul class='tower'></ul>").attr("data-pos", i);
       this.$el.append($tower);
-      for (var j = 2; j >= 0; j--) {
+      for (var j = 6; j >= 0; j--) {
         $tower.append($("<li class='space'></li>").attr("data-height", j));
       }
     }
   };
 
+  View.prototype.occupySpace = function ($space, weight) {
+    if (this.game.isWon()) {
+      $space.css("background", "#" +
+          (weight * 2).toString(16) +
+          (weight * 2).toString(16) + "f");
+    } else {
+      $space.css("background", "#" + (weight * 2).toString(16)
+        + (weight * 2).toString(16) + (weight * 2).toString(16))
+    }
+    $space.addClass("occupied")
+          .css("width", (30 + (10 * weight)).toString() + "%");
+    return $space;
+  }
+
   View.prototype.render = function () {
     for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 3; j++) {
+      for (var j = 0; j < 7; j++) {
         var $space = $(".tower[data-pos=" + i +
                        "] .space[data-height=" + j + "]");
         if (j >= this.game.towers[i].length) {
-          $space.removeClass("occupied")
-                .removeClass("light")
-                .removeClass("medium")
-                .removeClass("heavy");
+          $space.removeClass("occupied").removeAttr("style");
         } else {
-          var disc = this.game.towers[i][j];
-          if (disc === 3) {
-            $space.addClass("occupied").addClass("heavy");
-          } else if (disc === 2) {
-            $space.addClass("occupied").addClass("medium");
-          } else {
-            $space.addClass("occupied").addClass("light");
-          }
+          $space = this.occupySpace($space, this.game.towers[i][j])
         }
       }
     }
