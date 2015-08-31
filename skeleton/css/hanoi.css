@@ -1,0 +1,50 @@
+html, body, figure, figcaption, div, ul, p, h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: helvetica;
+    text-align: center;
+    font-size: 60px;
+}
+
+h1 {
+  margin: 50px;
+}
+
+.hanoi {
+  margin: 50px auto;
+  width: 1000px;
+}
+
+li {
+  display: list-item;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.tower {
+  float: left;
+  width: 240px;
+  margin: 20px;
+  border-bottom: 10px solid #009;
+  list-style: none;
+}
+
+.space {
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.tower.clicked {
+  border-bottom-color: #0f0
+}
+
+.win:after {
+  content: "You win!";
+  margin: 0px auto;
+}
